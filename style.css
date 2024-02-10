@@ -22,18 +22,20 @@ div.direita_em_linha{
 }
 .centralizar button {
     display: inline-block; /* Garante que os botões fiquem na mesma linha */
-    width: 200px; /* Define um tamanho fixo para os botões */
-    margin: 10px; /* Adiciona margem entre os botões */
-    border-radius: 10px; /* Adiciona bordas arredondadas aos botões */
-    padding: 10px; /* Adiciona preenchimento interno aos botões */
-    background-color: #f0f0f0; /* Define uma cor de fundo para os botões */
-    border: 1px solid #ccc; /* Adiciona uma borda aos botões */
+    width: 200px; 
+    margin: 10px; 
+    border-radius: 10px; 
+    padding: 10px;
+    background-color: #f0f0f0; 
+    border: 3px solid #000000; 
 }
 .centralizar .sign_in {
-    width: 100px; /* largura*/
-    height: 40px; /* altura*/
+    width: 90px; 
+    height: 45px;
     font-size: 15px;
+    border-radius: 10px; 
     font-weight: bold;
+    border: 2px solid #000000; 
     background-color: #007bff;
     color: #fff;
 }
