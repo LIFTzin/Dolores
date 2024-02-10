@@ -30,9 +30,10 @@ div.direita_em_linha{
     border: 1px solid #ccc; /* Adiciona uma borda aos botões */
 }
 .centralizar .sign_in {
-    width: 150px; /* Define uma largura menor para o botão "Sign in" */
-    height: 40px; /* Define uma altura menor para o botão "Sign in" */
-    font-size: 14px; /* Define um tamanho de texto menor para o botão "Sign in" */
+    width: 100px; /* largura*/
+    height: 40px; /* altura*/
+    font-size: 15px;
+    font-weight: bold;
     background-color: #007bff;
     color: #fff;
 }
