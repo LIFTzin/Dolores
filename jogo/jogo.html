@@ -4,11 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet", href="jogo.css">
-    <title>Jogo</title>
+    <title>Game</title>
 </head>
 <body>
-    <div class="label-expression">
-        <h1 class="">3 + 43</h1>
+    <div class="label-time-progress">
+        <label>
+            Time: <progress id="time" value="32" max="100">32%</progress>
+        </label>
     </div>
+    <div class="label-expression">
+        <h1>10+10</h1>
+    </div>
+
+    <div class="submit">
+        <input type="text" placeholder="Answer...">
+    </div>
+    
+    <div class="center">
+        <button>
+            Submit
+        </button>
+    </div>
+    <div class="warn-label">
+        <label>To submit answer, press 'enter'</label>
+    </div>
+
 </body>
 </html>
