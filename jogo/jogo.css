@@ -12,8 +12,12 @@ h1 {
 
 
 .difficulty-button {
-    background-color: #131313;
+    background-color: #383838;
     text-align: left;
+    font-size: xx-large;
+    padding: 10px 20px;
+    border-radius: 7px;
+    border: 3px #000;
 }
 
 .roman {
@@ -21,6 +25,7 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     color: beige;
     font-weight: bold;
+    padding-bottom: 3px;
 }
 
 .label-time-progress {
@@ -53,7 +58,10 @@ input[type="text"] {
     font-size: 50px;
 }
 
-button {
+.submit-button {
     padding: 10px 20px;
     font-size: xx-large;
+    border-radius: 10px;
+    border: 3px #000;
 }
+
