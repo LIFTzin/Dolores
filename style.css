@@ -33,6 +33,6 @@ div.direita_em_linha{
     width: 150px; /* Define uma largura menor para o botão "Sign in" */
     height: 40px; /* Define uma altura menor para o botão "Sign in" */
     font-size: 14px; /* Define um tamanho de texto menor para o botão "Sign in" */
-    background-color: #007bff; /* Altera a cor de fundo para o botão de "Sign in" */
-    color: #fff; /* Altera a cor do texto para branco */
+    background-color: #007bff;
+    color: #fff;
 }
