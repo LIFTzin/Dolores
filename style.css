@@ -1,0 +1,38 @@
+div.centralizar{
+    text-align: center;
+}
+
+.centralizar::after {
+    content: ""; /* Adiciona um elemento vazio para limpar a flutuação */
+    display: table;
+    clear: both;
+}
+div.comportamento_em_linha{
+        /*display: inline; /* faz com que o elemento se comporte como texto em linha */
+        float: left; /* Coloca o texto à esquerda */
+        margin-right: 10px; /* Adiciona um espaço entre o texto e o botão */
+}
+div.direita {
+        display: right;
+}
+div.direita_em_linha{
+        text-align: inline;
+        float: right;
+        margin-left: 10px; /* Adiciona um espaço entre o texto e o botão */
+}
+.centralizar button {
+    display: inline-block; /* Garante que os botões fiquem na mesma linha */
+    width: 200px; /* Define um tamanho fixo para os botões */
+    margin: 10px; /* Adiciona margem entre os botões */
+    border-radius: 10px; /* Adiciona bordas arredondadas aos botões */
+    padding: 10px; /* Adiciona preenchimento interno aos botões */
+    background-color: #f0f0f0; /* Define uma cor de fundo para os botões */
+    border: 1px solid #ccc; /* Adiciona uma borda aos botões */
+}
+.centralizar .sign_in {
+    width: 150px; /* Define uma largura menor para o botão "Sign in" */
+    height: 40px; /* Define uma altura menor para o botão "Sign in" */
+    font-size: 14px; /* Define um tamanho de texto menor para o botão "Sign in" */
+    background-color: #007bff; /* Altera a cor de fundo para o botão de "Sign in" */
+    color: #fff; /* Altera a cor do texto para branco */
+}
