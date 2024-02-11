@@ -1,0 +1,1 @@
+// Gerar as contas + resultado com base em uma dificuldade
