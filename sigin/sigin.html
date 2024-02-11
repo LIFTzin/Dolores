@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sigin.css">
+    <script>
+        function esconder_e_mostrar() {
+          var passwordInput = document.getElementById("senha");
+          if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+          } else {
+            passwordInput.type = "password";
+          }
+        }
+        </script>
+</head>
+<body>
+    <h1 class="centralizar">Sigin</h1>
+    <ul>
+    <h3 class="italico">Para conseguir salvar sua pontuação no jogo para que todos consiguam ve-lo no ranking global e consiga ostentar sua habilidade matemática 
+        <h3 class="italico_underline" style="line-height:0;">RECOMENDAMOS FORTEMENTE que faça sua conta, que será única, exclusiva e pessoal</h3>
+        <h3>além que há a possibilidade de personaliza-la! :
+            <ul type="disc">
+                <li>Colocando foto de perfil 📷</li>
+                <li>Descrição (um breve resumo sobre você) 👀</li>
+                <li>Além de consegui troféus personalizados pela sua colocação no ranking 😉</li>
+            </ul>
+        </h3>
+    </h3>
+    <br>
+    </ul>
+
+    <form action="" method="post">
+        <h2 class="centralizar">Crie seu nickname</h2>
+        <div class="centralizar">
+            <input type="text" placeholder="Carlinhos123" id="nickname">
+            <button type="submit">Enviar</button>
+        </div>
+    
+    
+        <h2 class="centralizar">Digite seu e-mail</h2>
+        <div class="centralizar">
+            <input type="email" placeholder="exemplo@gmail.com" id="e-mail">
+            <button type="submit">Enviar</button>
+        </div>
+    
+        <h2 class="centralizar">Crie sua senha </h2>
+        <div class="centralizar">
+            <button type="button" onclick="esconder_e_mostrar()">Revelar</button>
+            <input type="password" placeholder="Insira aqui sua senha" id="senha">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+</body>
+</html>

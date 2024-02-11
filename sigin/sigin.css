@@ -1,0 +1,10 @@
+.centralizar{
+    text-align: center;
+}
+.italico{
+    font-style: italic;
+}
+.italico_underline{
+    font-style: italic;
+    text-decoration: underline;
+}
