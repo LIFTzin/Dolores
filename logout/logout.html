@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="logout.css">
+    <script src="logout.js"></script>
+</head>
+<body>
+    <h1 class="centralizar">Logout</h1>
+
+    <!-- Imagem oculta pra ser usala la no logut.js-->
+    <!--<div id="conteiner_pra_centralizar">-->
+        <img id="gif_happy" src="happy-happy-happy-happy.gif" style="display: none;">
+    <!--</div>-->
+
+
+    <p id="emoji" class="supercentralizar">😰</p>
+    <br>
+    <form action="" method="post">
+        <div class="supercentralizar">
+            <button id="botao_sair" onclick="confirmar(event)" type="submit">Sair</button>
+        </div>
+        <div id="popup" class="popup">
+            <p>Tem certeza? Você é importante para nós... 😞😩😥</p>
+            <button style="padding: 3px; font-size: 7px;" class="negrito" onclick="nao()">SIM</button>
+            <button onclick="sim(event)">Não👍😃</button>
+        </div>
+    </form>
+</body>
+</html>
