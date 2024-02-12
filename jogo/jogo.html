@@ -4,36 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet", href="jogo.css">
-    <script src="partida.js"></script>
-    <title>Game</title>
+    <script src="gen.js" type="module"></script>
+    <script src="partida.js" type="module"></script>
+    <script src="jogo.js" type="module"></script>
+    <title>Dolores: Jogo</title>
 </head>
 <body>
     <div class="label-time-progress">
         <label>
-            Time: <progress id="time" value="32" max="100"></progress>1s
+            Time: <progress id="time" value="32" max="100"></progress>
+            <span id="time-label">1s</span>
         </label>
     </div>
     <div class="label-expression">
-        <h1>10+10</h1>
+        <h1 id="label">10+10</h1>
     </div>
 
     <div class="submit">
-        <input type="text" placeholder="Answer...">
+        <input type="text" id="user-input" placeholder="Resposta...">
     </div>
     
     <div class="center">
-        <button class="submit-button">
-            Submit
+        <button class="submit-button" onclick="mandar_dados(event)">
+            Enviar resposta
         </button>
     </div>
     <div class="warn-label">
-        <label>To submit answer, press 'enter'</label>
+        <label>Para mandar a resposta, pressione 'enter'</label>
     </div>
 
     <div>
         <button class="difficulty-button">
-            <label class="roman">
-                <strong style="font-size: xx-large;">I</strong>
+            <label class="roman" id="roman-num">
+                I
             </label>
         </button>
     </div>

@@ -21,10 +21,10 @@ h1 {
 }
 
 .roman {
-    font-size: x-large;
+    font-size: xx-large;
     font-family: 'Times New Roman', Times, serif;
     color: beige;
-    font-weight: bold;
+    font-weight: bolder;
     padding-bottom: 3px;
 }
 
