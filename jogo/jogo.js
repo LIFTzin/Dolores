@@ -124,7 +124,7 @@ function mandar_dados(event) {
         return;
     }
 
-    if (palpite == get_dificuldade()) {
+    if (palpite == get_resultado()) {
         PONTOS += 1;
         atualizar_partida();
         return;
