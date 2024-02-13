@@ -4,12 +4,18 @@
 // Operações duplas (2 números) -> 3 + 2
 // Operações unas (funções, 1 número) -> 3%, sqrt(3)
 
-var OPERADORES = ["+", "-", "*", "/", "%"];
-var OPERADORES_UNOS = ["√"]
+const OPERADORES = ["+", "-", "*", "/", "%", "**"];
+const OPERADORES_UNOS = ["√"];
 
 var TIPOS_OPERACOES = ["una", "dupla"];
 
-
+const OPERADORES_DIFICULDADES = {
+    "primata": ["+", "-"],
+    "facil": ["+", "-", "*"],
+    "medio": ["-", "*", "/"],
+    "dificil": ["*", "/", "%", "**"],
+    "masoquista": ["+", "-", "*", "/", "%", "√", "**"]
+};
 
 
 /*
@@ -19,9 +25,8 @@ MEDIO -> -, *, /
 MASOQUISMO -> +, -, *, /, **, %
 */
 
-function gerar_numero(maximo) {
-    // Gera um número aleatório de 0 -> máximo
-    return Math.floor(Math.random() * maximo);
+function randint(start, end){
+    return Math.floor(Math.random() * (end - start + 1) + start);
 }
 
 function roundTo(n, decimalPlaces) {
@@ -30,7 +35,7 @@ function roundTo(n, decimalPlaces) {
 
 function escolher(array) {
     // Pega um elemento dum array com um index aleatório
-    return array[gerar_numero(array.length)];
+    return array[randint(0, array.length-1)];
 }
 
 function resolver_expressao(expressao) {
@@ -62,37 +67,75 @@ function resolver_expressao(expressao) {
     }
 }
 
-function operador_aleatorio(numero_da_partida) {
-    if (numero_da_partida >= 10) {
-        return escolher(OPERADORES.concat(OPERADORES_UNOS));
-    } else {
-        return escolher(OPERADORES)
-    }
+function operador_aleatorio(dificuldade) {
+    return escolher(OPERADORES_DIFICULDADES[dificuldade]);
 }
 
-function gerar_expressao(numero_da_partida) {
+function gerar_numero_pot(difficuldade) {
+    if (difficuldade !== "masoquista") {
+        return randint(0, 4)
+    }
+    return randint(-5, 5);
+}
+
+function gerar_numero(numero_da_partida, evitar0=false, negativos=true) {
+    let chance_negativos = 0;
+    if (numero_da_partida >= 21 && negativos) {
+        chance_negativos = 50;
+    }
+
+    let min = 0;
+    if (evitar0) {
+        min = 1;
+    }
+
+    let num_gerado = randint(min, (numero_da_partida+4))
+
+    if (randint(0, 100) < chance_negativos) {
+        num_gerado = num_gerado * -1;
+    }
+
+    return num_gerado;
+}
+
+function gerar_expressao(numero_da_partida, dificuldade) {
     // Gera 2 números aleatórios com base na dificuldade
-    let num1 = gerar_numero(numero_da_partida+4);
+    
     
     // Escolhe um operador aleatório
-    let operador = operador_aleatorio(numero_da_partida);
+    let operador = operador_aleatorio(dificuldade);
     let tipo_operacao = "";
     let expressao = [];
 
+    let num1;
+    let num2;
+
     if (OPERADORES_UNOS.includes(operador)) {
+        let negativos = true;
+        
+        if (operador === "√") {
+            negativos = false;
+        }
+
+        num1 = gerar_numero(numero_da_partida, false, negativos);
         tipo_operacao = "una";
         expressao = [tipo_operacao, num1, operador];
     } else {
         tipo_operacao = "dupla";
-
-        let num2 = gerar_numero(numero_da_partida+9);
+        if (operador !== "**") {
+            num1 = gerar_numero(numero_da_partida);
+            num2 = gerar_numero(numero_da_partida, true);
+        } else {
+            num1 = gerar_numero_pot(dificuldade);
+            num2 = gerar_numero_pot(dificuldade);
+        }
         expressao = [tipo_operacao, num1, operador, num2];
     }
 
     let resultado = resolver_expressao(expressao);
     
     // Retorna um número, operador, outro número e o resultado da conta.
-    return [expressao, roundTo(resultado, 3)];
+    return [expressao, roundTo(resultado, 2)];
 }
 
-export {gerar_expressao, resolver_expressao, gerar_numero, roundTo};
+export {gerar_expressao, resolver_expressao, randint, roundTo};

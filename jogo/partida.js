@@ -1,48 +1,66 @@
 // partida
-import { gerar_expressao } from './gen.js';
+import { gerar_expressao, roundTo } from './gen.js';
+// TODO: MELHORAR FÓRUMLA DO TEMPO, CONSIDERE A 'DIFICULDADE REAL' DAS EXPRESSÕES
+// Porcentagem a ser multiplicada
+var AUMENTO_DE_TEMPO = 1.175;
+
+const TEMPO_MIN_DIFICULDADE = {
+    "primata": 4,
+    "facil": 7,
+    "medio": 13,
+    "dificil": 22,
+    "masoquista": 33,
+};
+
+const PARTIDAS_DIFICULDADES = {
+    "primata": [0, 10],
+    "facil": [11, 20],
+    "medio": [21, 30],
+    "dificil": [31, 40],
+}
+
+const DIFICULDADES_ACENTOS = {
+    "primata": "Primata",
+    "facil": "Fácil",
+    "medio": "Médio",
+    "dificil": "Difícil",
+    "masoquista": "Masoquista",
+}
 
 function ver_dificuldade (numero_da_partida){
-    if (numero_da_partida === 1 || numero_da_partida === 2 || numero_da_partida === 3) {
-        return "primata";
+    for (const [key, value] of Object.entries(PARTIDAS_DIFICULDADES)) {
+        let x = value[0];
+        let y = value[1];
+
+        if (x <= numero_da_partida && numero_da_partida <= y) {
+            return key;
+        }
     }
-    else if  (numero_da_partida === 4 || numero_da_partida === 5) {
-        return "facil";
-    }
-    else if  (numero_da_partida === 6 || numero_da_partida === 7 || numero_da_partida === 8) {
-        return "medio";
-    }
-    else if  (numero_da_partida === 9 || numero_da_partida === 10) {
-        return "dificil";
-    }
-    else if  (numero_da_partida >= 10) {
-        return "masoquista";
-    }
+    return "masoquista";
 }
-function tempo_do_exercicio (dificuldade){
-    if (dificuldade === "primata") {
-        return 5;
+
+// t(x) = Ax + o
+// https://www.desmos.com/calculator/qh9r4zzjdp
+function tempo(x, o) {
+    if (x > 40) {
+        x = 50;
     }
-    else if (dificuldade === "facil") {
-        return 9; // formula = dificuldade anterior + 75% (arredondamento pra cima)
-    }
-    else if (dificuldade === "medio") {
-        return 16;
-    }
-    else if (dificuldade === "dificil") {
-        return 28;
-    }
-    else if (dificuldade === "masoquista") {
-        return 49;
-    }
+    return x * AUMENTO_DE_TEMPO + o
 }
+
+function tempo_do_exercicio (dificuldade, numero_da_partida){
+    // formula = dificuldade anterior + 75% (arredondamento pra cima)
+    return roundTo(tempo(numero_da_partida, TEMPO_MIN_DIFICULDADE[dificuldade]), 2);
+}
+
 function gerar_partida (numero_da_partida){ // retorna a dificuldade, expressao, resultado, tempo
     let dificuldade = ver_dificuldade(numero_da_partida);
-    let expressao_gerada = gerar_expressao(numero_da_partida);
+    let expressao_gerada = gerar_expressao(numero_da_partida, dificuldade);
     let expressao = expressao_gerada[0];
     let resultado = expressao_gerada[1];
-    let tempo = tempo_do_exercicio(dificuldade);
+    let tempo = tempo_do_exercicio(dificuldade, numero_da_partida);
 
     return [dificuldade, expressao, resultado, tempo];
 }
 
-export {gerar_partida};
+export {gerar_partida, DIFICULDADES_ACENTOS};
