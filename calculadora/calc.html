@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calc.css">
+    <script src="calc.js"></script>
+</head>
+<body>
+    <div class="centralizar_tabela">
+        <h1 class="centralizar">CALCULADORA SUPREMA</h1>
+        <span id="visor">0</span>
+        <table> <!--Tabela-->
+            <tr> <!--Linha-->
+                <td><button class="botao_vermelho" onclick="apagar_tudo()">CE</button></td> <!--Elemento-->
+                <td><button class="botao_vermelho_medio" onclick="apagar_acao()">C</button></td>
+                <td><button class="botao_vermelho_claro" onclick="apagar_caractere()">DEL</button></td>
+                <td><button class="botao_cinza" onclick="dividir()">/</button></td>
+            </tr>
+            <tr>
+                <td><button class="botao_branco" onclick="sete()">7</button></td>
+                <td><button class="botao_branco" onclick="oito()">8</button></td>
+                <td><button class="botao_branco" onclick="nove()">9</button></td>
+                <td><button class="botao_cinza" onclick="multiplicar()">*</button></td>
+            </tr>
+            <tr>
+                <td ><button class="botao_branco" onclick="quatro()">4</button></td>
+                <td ><button class="botao_branco" onclick="cinco()">5</button></td>
+                <td ><button class="botao_branco" onclick="seis()">6</button></td>
+                <td ><button class="botao_cinza" onclick="subtrair()">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="botao_branco" onclick="um()">1</button></td>
+                <td><button class="botao_branco" onclick="dois()">2</button></td>
+                <td><button class="botao_branco" onclick="tres()">3</button></td>
+                <td><button class="botao_cinza" onclick="adicionar()">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="abrir_opçoes()">MORE</button></td>
+                <td><button class="botao_branco" onclick="zero()">0</button></td>
+                <td><button class="botao_branco" onclick="ponto()">.</button></td>
+                <td><button class="botao_azul" onclick="mostrar_resultado()">=</button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
