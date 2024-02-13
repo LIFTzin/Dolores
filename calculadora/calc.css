@@ -1,0 +1,89 @@
+.centralizar{
+    text-align: center;
+}
+
+.centralizar_tabela{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajuste conforme necessário */
+}
+
+table button {
+    width: 100px; 
+    height: 75px;
+}
+
+.botao_branco {
+    border: none;
+    background-color: #fff; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_cinza {
+    border: none;
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_azul {
+    border: none;
+    background-color: blue; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_vermelho_claro {
+    border: none;
+    background-color: #FF7F50; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_vermelho_medio {
+    border: none;
+    background-color: #ff4500; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_vermelho {
+    border: none;
+    background-color: red; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border-radius: 5px; /* Borda arredondada */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#visor {
+    height: 60px;
+    width: 410px;
+    display: block;
+    border: 3px solid #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 56px;
+}
+.more {
+    font-size: 32px;
+}
