@@ -127,7 +127,7 @@ function gerar_expressao(numero_da_partida, dificuldade) {
             num2 = gerar_numero(numero_da_partida, true);
         } else {
             num1 = gerar_numero_pot(dificuldade);
-            num2 = gerar_numero_pot(dificuldade);
+            num2 = gerar_numero_pot(dificuldade)
         }
         expressao = [tipo_operacao, num1, operador, num2];
     }
