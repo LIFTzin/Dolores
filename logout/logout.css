@@ -21,3 +21,15 @@
 .negrito{
     font-weight: bold;
 }
+.container_gif {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /*center para tudo no centro*/
+    height: 100vh; /* Para centralizar verticalmente */
+  }
+.audio-player {
+    align-self: flex-end; /* Alinhar o player de áudio à direita */
+    margin-right: 100px; /* nao funcionou*/
+    margin-top: -500px; /* Ajuste a margem superior para movê-lo para cima IMPORTANTE FOI ELE QUE FUNCIONOU*/ 
+    margin-bottom: 10px;
+}

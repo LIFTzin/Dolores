@@ -11,10 +11,22 @@
     <h1 class="centralizar">Logout</h1>
 
     <!-- Imagem oculta pra ser usala la no logut.js-->
-    <!--<div id="conteiner_pra_centralizar">-->
+    <div id="conteiner_pra_centralizar" class="container_gif">
         <img id="gif_happy" src="happy-happy-happy-happy.gif" style="display: none;">
-    <!--</div>-->
+    </div>
 
+    <!--</Audios e botoe ocultos para centralizar ACHEI MELHOR NAO USAR>
+    <div id="controladores_player" style="display: none;">
+        <button onclick="document.getElementById('player').play()">Play</button>
+        <button onclick="document.getElementById('player').pause()">Pause</button>
+        <button onclick="document.getElementById('player').volume+=0.1">Aumentar volume</button>
+        <button onclick="document.getElementById('player').volume-=0.1">Diminuir volume</button>
+    </div>-->
+
+    <audio class="audio-player" controls autoplay id="player" style="display: none;"> 
+        <source src="happy.mp3" type="audio/mp3" />
+        seu navegador não suporta HTML5  
+    </audio>
 
     <p id="emoji" class="supercentralizar">😰</p>
     <br>
@@ -24,7 +36,7 @@
         </div>
         <div id="popup" class="popup">
             <p>Tem certeza? Você é importante para nós... 😞😩😥</p>
-            <button style="padding: 3px; font-size: 7px;" class="negrito" onclick="nao()">SIM</button>
+            <button style="padding: 3px; font-size: 7px;" class="negrito" onclick="nao(event)">SIM</button>
             <button onclick="sim(event)">Não👍😃</button>
         </div>
     </form>
