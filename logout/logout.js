@@ -12,8 +12,11 @@ function sim(event) {
     //var container = document.getElementById("container_pra_centralizar");
     //container.style.textAlign = "center";
 
-    document.getElementById("gif_happy").style.display = "block";
+    //document.getElementById("controladores_player").style.display = "block";
+    document.getElementById("gif_happy").style.display = "block"; //desocultando tudo
+    document.getElementById("player").style.display = "block";
     document.getElementById("popup").style.display = "none"; // tirar o popup
+
     setTimeout(function() {
         document.getElementById("gif_happy").style.display = "none";
         document.getElementById("botao_sair").style.display = "block" // tirando o botao de sair enquanto estiver rodando o gif
@@ -23,11 +26,12 @@ function sim(event) {
         window.location.href = "../index.html";
     }, 10000); 
 }
-function nao() {
-    let alertas = ["Você clicou em 'Sim'?!","???????????????????","🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡","Eu...", "estou decepicionado", "😃", "😀", "😐", "😑","😥", "😖", "😭", "Ok."];
+function nao(event) {
+    event.preventDefault(); //obrigado amigo, voce eh um amigo
+    let alertas = ["Você clicou em 'Sim'?!","🤡🤡🤡🤡🤡🤡🤡🤡🤡🤡","Eu...", "estou decepicionado", "😃", "😀", "😐", "😑","😥", "😖", "😭", "Ok."];
     for (let i = 0; i<alertas.length;i++) {
         alert(alertas[i]);
     }
     document.getElementById("popup").style.display = "none"; //oculta o popup
-    window.location.href = "../index.html"; // NAO ESTA FUNCIONADO - ARRUMAR
+    window.location.href = "https://www.dicio.com.br/desleal/";
 }
