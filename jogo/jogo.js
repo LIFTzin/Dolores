@@ -1,4 +1,5 @@
-import { gerar_partida } from "./partida.js";
+import { roundTo } from "./gen.js";
+import { gerar_partida, DIFICULDADES_ACENTOS } from "./partida.js";
 
 var PONTOS = 0;
 var NUMERO_DA_PARTIDA = 0;
@@ -6,7 +7,12 @@ var PARTIDA_ATUAL;
 
 var label = document.getElementById("label");
 var input_user = document.getElementById("user-input");
+
 var num_romano = document.getElementById("roman-num");
+var label_dificuldade = document.getElementById("difficulty-label");
+
+var barra_do_tempo = document.getElementById("time");
+var label_tempo = document.getElementById("time-label");
 
 // http://blog.stevenlevithan.com/archives/javascript-roman-numeral-converter
 // FUNÇÃO DE NÚMEROS ROMANOS CRÉDITOS ACIMA
@@ -39,6 +45,12 @@ function atualizar_label() {
         return;
     } else {
         let num2 = expressao[3]
+        
+
+        if (num2 < 0) {
+            num2 = "(" + num2 + ")"
+        }
+
         if (operador === "%") {
             mudar_label(num1 + "% de  " + num2);
             return;
@@ -49,14 +61,19 @@ function atualizar_label() {
 
 function atualizar_roman(numero) {
     num_romano.innerText = romanize(numero);
+    label_dificuldade.innerHTML = DIFICULDADES_ACENTOS[get_dificuldade()];
 }
 
 function atualizar_partida() {
     NUMERO_DA_PARTIDA ++;
-    atualizar_roman(NUMERO_DA_PARTIDA);
     PARTIDA_ATUAL = gerar_partida(NUMERO_DA_PARTIDA);
+    atualizar_roman(NUMERO_DA_PARTIDA);
     input_user.value = "";
     atualizar_label();
+    atualizar_tempo(get_max_tempo());
+
+    console.log(PARTIDA_ATUAL);
+    console.log(get_expressao()[3])
 }
 
 function get_expressao() {
@@ -67,25 +84,67 @@ function get_resultado() {
     return PARTIDA_ATUAL[2]
 }
 
-atualizar_partida();
-console.log(PARTIDA_ATUAL);
-console.log(get_expressao()[3])
+function get_dificuldade() {
+    return PARTIDA_ATUAL[0];
+}
 
-// RODA QUANDO O USUÁRIO PRESSIONA 'Enviar resposta'
+function get_max_tempo() {
+    return PARTIDA_ATUAL[3];
+}
+
+function formatarTempo(segundos) {
+    let minutos = Math.floor(segundos / 60);
+    let resto = roundTo(segundos % 60, 2);
+    if (minutos === 0) {
+        return resto + "s";
+    }
+    return minutos + "m " + resto + "s";
+  }
+  
+
+function atualizar_tempo(x) {
+    let maximo = get_max_tempo();
+    barra_do_tempo.max = maximo;
+    barra_do_tempo.value = x;
+
+    label_tempo.innerHTML = formatarTempo(x);
+}
+
+atualizar_partida();
+
+// RODA QUANDO O USUÁRIO PRESSIONA 'Enviar resposta' ou pressiona ENTER
 function mandar_dados(event) {
-    event.preventDefault();
+    if (event) {
+        event.preventDefault();
+    }
     let palpite = input_user.value;
 
-    if (palpite == get_resultado()) {
+    // Se o palpite não for um número, retorne.
+    if (isNaN(palpite)) {
+        return;
+    }
+
+    if (palpite == get_dificuldade()) {
         PONTOS += 1;
         atualizar_partida();
         return;
     } else {
         alert("BURRO, você perdeu!");
+        // resetando
+        NUMERO_DA_PARTIDA = 0;
+        PONTOS = 0;
+
         window.location.href = "../index.html";
     }
     
-    console.log(input_user.value);
+    // console.log(input_user.value);
 }
+
+// CONFIGURAR ENTRADA DE BOTÃO
+document.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        mandar_dados(event);
+    }
+})
 
 window.mandar_dados = mandar_dados;
