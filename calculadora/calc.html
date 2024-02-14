@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="calc.css">
-    <script src="calc.js"></script>
+    <script type="module" src="calc.js"></script>
 </head>
 <body>
     <div class="centralizar_tabela">
@@ -16,33 +16,34 @@
                 <td><button class="botao_vermelho" onclick="apagar_tudo()">CE</button></td> <!--Elemento-->
                 <td><button class="botao_vermelho_medio" onclick="apagar_acao()">C</button></td>
                 <td><button class="botao_vermelho_claro" onclick="apagar_caractere()">DEL</button></td>
-                <td><button class="botao_cinza" onclick="dividir()">/</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('/')">/</button></td>
             </tr>
             <tr>
-                <td><button class="botao_branco" onclick="sete()">7</button></td>
-                <td><button class="botao_branco" onclick="oito()">8</button></td>
-                <td><button class="botao_branco" onclick="nove()">9</button></td>
-                <td><button class="botao_cinza" onclick="multiplicar()">*</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('7')">7</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('8')">8</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('9')">9</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('*')">*</button></td>
             </tr>
             <tr>
-                <td ><button class="botao_branco" onclick="quatro()">4</button></td>
-                <td ><button class="botao_branco" onclick="cinco()">5</button></td>
-                <td ><button class="botao_branco" onclick="seis()">6</button></td>
-                <td ><button class="botao_cinza" onclick="subtrair()">-</button></td>
+                <td ><button class="botao_branco" onclick="mostrar_coisa('4')">4</button></td>
+                <td ><button class="botao_branco" onclick="mostrar_coisa('5')">5</button></td>
+                <td ><button class="botao_branco" onclick="mostrar_coisa('6')">6</button></td>
+                <td ><button class="botao_cinza" onclick="mostrar_coisa('-')">-</button></td>
             </tr>
             <tr>
-                <td><button class="botao_branco" onclick="um()">1</button></td>
-                <td><button class="botao_branco" onclick="dois()">2</button></td>
-                <td><button class="botao_branco" onclick="tres()">3</button></td>
-                <td><button class="botao_cinza" onclick="adicionar()">+</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('1')">1</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('2')">2</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('3')">3</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('+')">+</button></td>
             </tr>
             <tr>
-                <td><button onclick="abrir_opçoes()">MORE</button></td>
-                <td><button class="botao_branco" onclick="zero()">0</button></td>
-                <td><button class="botao_branco" onclick="ponto()">.</button></td>
-                <td><button class="botao_azul" onclick="mostrar_resultado()">=</button></td>
+                <td><button onclick="abrir_opcoes()">MORE</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('0')">0</button></td>
+                <td><button class="botao_branco" onclick="mostrar_coisa('.')">.</button></td>
+                <td><button class="botao_azul" onclick="mostrar_coisa('=')">=</button></td>
             </tr>
         </table>
     </div>
+    <button onclick="mostrar_lista()">mostrarlista</button>
 </body>
 </html>
