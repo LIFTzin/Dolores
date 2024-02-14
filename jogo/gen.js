@@ -5,16 +5,19 @@
 // Operações unas (funções, 1 número) -> 3%, sqrt(3)
 
 const OPERADORES = ["+", "-", "*", "/", "%", "**"];
-const OPERADORES_UNOS = ["√"];
+const OPERADORES_UNOS = ["√", "sin", "cos"];
 
-var TIPOS_OPERACOES = ["una", "dupla"];
+const TIPOS_OPERACOES = ["una", "dupla"];
 
 const OPERADORES_DIFICULDADES = {
     "primata": ["+", "-"],
     "facil": ["+", "-", "*"],
     "medio": ["-", "*", "/"],
     "dificil": ["*", "/", "%", "**"],
-    "masoquista": ["+", "-", "*", "/", "%", "√", "**"]
+    "insano": ["+", "-", "*", "/", "%", "√", "**"],
+    "lunatico": ["sin", "cos", "*", "/", "/", "%", "%", "√", "√"],
+    "masoquista": ["+", "-", "*", "/", "%", "√", "**","%", "√", "**","%", "√", "√",
+                    "sin", "sin", "cos", "cos"],
 };
 
 
@@ -46,6 +49,10 @@ function resolver_expressao(expressao) {
     if (tipo_operacao === "una") {
         if (operador === "√") {
             return Math.sqrt(num1);
+        } else if (operador === "sin") {
+            return Math.sin(num1);
+        } else if (operador === "cos") {
+            return Math.cos(num1);
         }
         throw "Invalid expression";
     }
