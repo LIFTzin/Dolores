@@ -41,6 +41,10 @@ function atualizar_label() {
     let operador = expressao[2];
     
     if (tipo === "una") {
+        if (operador !== "√") {
+            mudar_label(operador + "(" + num1 + ")");
+            return;
+        }
         mudar_label(operador + num1);
         return;
     } else {
@@ -97,7 +101,11 @@ function formatarTempo(segundos) {
     let resto = roundTo(segundos % 60, 2);
     if (minutos === 0) {
         return resto + "s";
+    } else if (resto === 0) {
+        return minutos + "m";
     }
+
+
     return minutos + "m " + resto + "s";
   }
   
