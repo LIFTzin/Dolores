@@ -1,5 +1,5 @@
 // partida
-import { gerar_expressao, roundTo } from './gen.js';
+import { gerar_expressao, roundTo, escolher } from './gen.js';
 // TODO: MELHORAR FÓRUMLA DO TEMPO, CONSIDERE A 'DIFICULDADE REAL' DAS EXPRESSÕES
 // Porcentagem a ser multiplicada
 var AUMENTO_DE_TEMPO = 1.175;
@@ -47,6 +47,73 @@ const DIFICULDADES_ACENTOS = {
     "lunatico": "Lunático",
     "masoquista": "Masoquista",
 }
+
+// AVISOS AO USUÁRIO
+const AVISOS_01 = [
+    "Para enviar a resposta, pressione 'enter'",
+]
+
+const AVISOS_02 = [
+    "O jogo considera respostas de até 2 casas após a vírgula",
+    "Digite números com '.' ao invés de ',' é boa prática",
+    "Ainda tá fácil",
+    "Passou de ano?",
+    "Não dá pra errar.",
+    "Bixo, tá dificultando...",
+    "O tempo está acabando :)",
+    ":)",
+]
+
+const AVISOS_03 = [
+    "Não prestei atenção nas aulas de porcentagem prof",
+    "Quanto é que é?",
+    "%",
+    "Mariana comprou 3 doces...",
+    "E deixou todos na calçada",
+    "Quantos doces Mariana tem?",
+    "O tempo está acabando :)",
+]
+
+const AVISOS_04 = [
+    "Quem é essa raiz quadrada aí?",
+    "É minecraft?",
+    "A resposta é 0.3 confia",
+    "3.14 confia",    
+]
+
+const AVISOS_05 = [
+    "Muito fofa essa conta adorei ❤️",
+    "Já ouviu falar em trigonometria?",
+    "Um dois três! Três dois um...",
+    "Todo mundo sobre dois, raiz em cada um!",
+    "Esse seno aí, o que que faz?",
+    "Ondas de seno?",
+    "π=3.141592..."
+]
+
+const AVISOS_06 = [
+    "Tristeza não tem fim",
+    "Por quê?",
+    "Onde estou, quem sou eu?",
+    "Eu <3 Matemática",
+    "Nossa! Quão longe você tá!",
+    "Incrível né?",
+    "Né?....",
+    "...",
+    ":3",
+    "Lorem Ipsum, dolores sit amet"
+]
+
+const AVISOS = {
+    "primata": AVISOS_01,
+    "facil": AVISOS_01,
+    "medio": AVISOS_02,
+    "dificil": AVISOS_03,
+    "insano": Array(...AVISOS_03, ...AVISOS_04, ...AVISOS_04),
+    "lunatico": Array(...AVISOS_04, ...AVISOS_05),
+    "masoquista": Array(...AVISOS_05, ...AVISOS_06),
+}
+
 
 function ver_dificuldade (numero_da_partida){
     for (const [key, value] of Object.entries(PARTIDAS_DIFICULDADES)) {
@@ -116,7 +183,9 @@ function gerar_partida (numero_da_partida){ // retorna a dificuldade, expressao,
 
     let tempo = tempo_do_exercicio(dificuldade, numero_da_partida, operador);
 
-    return [dificuldade, expressao, resultado, tempo];
+    let aviso_escolhido = escolher(AVISOS[dificuldade]);
+
+    return [dificuldade, expressao, resultado, tempo, aviso_escolhido];
 }
 
 export {gerar_partida, DIFICULDADES_ACENTOS};

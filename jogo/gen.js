@@ -145,4 +145,4 @@ function gerar_expressao(numero_da_partida, dificuldade) {
     return [expressao, roundTo(resultado, 2)];
 }
 
-export {gerar_expressao, resolver_expressao, randint, roundTo};
+export {gerar_expressao, resolver_expressao, randint, roundTo, escolher};
