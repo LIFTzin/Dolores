@@ -16,7 +16,6 @@ table button {
 }
 
 .botao_branco {
-    border: none;
     background-color: #fff; /* Cor de fundo */
     color: #000; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
@@ -26,7 +25,6 @@ table button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .botao_cinza {
-    border: none;
     color: #000; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
     font-size: 32px; /* Tamanho da fonte */
@@ -35,7 +33,6 @@ table button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .botao_azul {
-    border: none;
     background-color: blue; /* Cor de fundo */
     color: #fff; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
@@ -45,7 +42,6 @@ table button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .botao_vermelho_claro {
-    border: none;
     background-color: #FF7F50; /* Cor de fundo */
     color: #000; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
@@ -55,7 +51,6 @@ table button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .botao_vermelho_medio {
-    border: none;
     background-color: #ff4500; /* Cor de fundo */
     color: #000; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
@@ -65,12 +60,26 @@ table button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .botao_vermelho {
-    border: none;
     background-color: red; /* Cor de fundo */
     color: #000; /* Cor do texto */
     padding: 10px 20px; /* Espaçamento interno */
     font-size: 32px; /* Tamanho da fonte */
-    border-radius: 5px; /* Borda arredondada */
+   
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_more {
+    color: #000; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
+    border: 1px solid #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.botao_oculto {
+    background-color: orange; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno */
+    font-size: 32px; /* Tamanho da fonte */
     border: 1px solid #000000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -83,7 +92,4 @@ table button {
     margin-bottom: 10px;
     text-align: right;
     font-size: 56px;
-}
-.more {
-    font-size: 32px;
 }

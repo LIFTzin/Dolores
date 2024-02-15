@@ -5,39 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="calc.css">
-    <script type="module" src="calc.js"></script>
+    <script>
+        let aberto = false;
+        function abrir_opcoes() {
+            var botoesOcultos = document.getElementsByName("ocultao");
+            for (var i = 0; i < botoesOcultos.length; i++) {
+                if (aberto){
+                    botoesOcultos[i].style.display = "none";
+                }  
+                else{
+                    botoesOcultos[i].style.display = "block";
+                }
+            }
+            if (aberto){
+                aberto = false
+            }
+            else{
+                aberto = true
+            }
+        }
+
+        window.abrir_opcoes=abrir_opcoes
+    </script>
+    <script src="calc.js" type="module"></script>
 </head>
 <body>
     <div class="centralizar_tabela">
         <h1 class="centralizar">CALCULADORA SUPREMA</h1>
         <span id="visor">0</span>
-        <table> <!--Tabela-->
+        <table> <!--Tabela-->   
             <tr> <!--Linha-->
-                <td><button class="botao_vermelho" onclick="apagar_tudo()">CE</button></td> <!--Elemento-->
-                <td><button class="botao_vermelho_medio" onclick="apagar_acao()">C</button></td>
+                <td><button style="display: none;">BOTAO QUE SO SERVER PRA FORMATAR</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('%')">%</button></td> <!--Elemento-->
+                <td><button class="botao_vermelho" onclick="apagar_tudo()">C</button></td>
+                <td><button class="botao_vermelho_medio" onclick="apagar_acao()">CE</button></td>
                 <td><button class="botao_vermelho_claro" onclick="apagar_caractere()">DEL</button></td>
+            </tr>
+            <tr>
+                <td><button style="display: none;">BOTAO QUE SO SERVER PRA FORMATAR</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('(')">(</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa(')')">)</button></td>
+                <td><button class="botao_cinza" onclick="mostrar_coisa('**')">**</button></td>
                 <td><button class="botao_cinza" onclick="mostrar_coisa('/')">/</button></td>
             </tr>
             <tr>
+                <td><button style="display: none;">BOTAO QUE SO SERVER PRA FORMATAR</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('7')">7</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('8')">8</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('9')">9</button></td>
                 <td><button class="botao_cinza" onclick="mostrar_coisa('*')">*</button></td>
             </tr>
             <tr>
+                <td><button name="ocultao" style="display: none;" class="botao_oculto" onclick="cos()">COS</button></td>
                 <td ><button class="botao_branco" onclick="mostrar_coisa('4')">4</button></td>
                 <td ><button class="botao_branco" onclick="mostrar_coisa('5')">5</button></td>
                 <td ><button class="botao_branco" onclick="mostrar_coisa('6')">6</button></td>
                 <td ><button class="botao_cinza" onclick="mostrar_coisa('-')">-</button></td>
             </tr>
             <tr>
+                <td><button name="ocultao" style="display: none;" class="botao_oculto" onclick="sen()">SEN</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('1')">1</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('2')">2</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('3')">3</button></td>
                 <td><button class="botao_cinza" onclick="mostrar_coisa('+')">+</button></td>
             </tr>
             <tr>
-                <td><button onclick="abrir_opcoes()">MORE</button></td>
+                <td><button name="ocultao" style="display: none;" class="botao_oculto" onclick="raiz()">√</button></td>
+                <td><button class="botao_more" onclick="abrir_opcoes()">︙</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('0')">0</button></td>
                 <td><button class="botao_branco" onclick="mostrar_coisa('.')">.</button></td>
                 <td><button class="botao_azul" onclick="mostrar_coisa('=')">=</button></td>
