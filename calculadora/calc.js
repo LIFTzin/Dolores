@@ -1,8 +1,6 @@
 //visor.textContent =
 var lista = [];
-var lista_junta;
-var lista_de_varrer_final = [];
-var lista_de_varrer_inicial = [];
+var lista_junta = [];
 var lista_numeros = ["0","1","2","3","4","5","6","7","8","9"];
 var lista_operadores = ["+","-","*","/"];
 function atualizarVisor(lista) {
@@ -35,33 +33,33 @@ function juntar_numeros(){ //varendo a lista para juntar numeros escritos entre 
 
     // i=2 -> lista_de_varrer_final (+=lista_de_varrer_incial) = ["10"]
     // i=2 -> lista_de_varrer_fianl = ["10","+",]
+    let lista_de_varrer_final = [];
+    let lista_de_varrer_inicial = [];
 
-    for (var i = 0; i < lista.length; i++) {
+    for (let i = 0; i < lista.length; i++) {
         if (!lista_operadores.includes(lista[i])){
             if (lista_de_varrer_inicial.length > 0){ 
-                lista_de_varrer_final.push(lista_de_varrer_inicial)
+                lista_de_varrer_final.push(...lista_de_varrer_inicial); //... -> adicionar só os elementos
+                lista_de_varrer_inicial.splice(0, lista_de_varrer_inicial.length);
             }
-            lista_de_varrer_final.push(lista[i])
+            lista_de_varrer_final.push(lista[i]);
         }
         else{
             lista_de_varrer_inicial.push(lista[i]) 
             if(lista_de_varrer_inicial.length > 1) {
-                var concatenar = lista_de_varrer_inicial.join("");
+                let concatenar = lista_de_varrer_inicial.join("");
                 lista_de_varrer_inicial.splice(0, lista_de_varrer_inicial.length); // apaga a lista
-                lista_de_varrer_inicial.push(concatenar)
+                lista_de_varrer_inicial.push(concatenar);
             }
         }    
     }
     // Trata o caso em que a última parte da expressão não é um operador
-    if (lista_de_varrer_inicial.length > 0) {
-        var concatenar = lista_de_varrer_inicial.join("");
-        lista_de_varrer_inicial = []; 
+    /*if (lista_de_varrer_inicial.length > 0) {
+        let concatenar = lista_de_varrer_inicial.join("");
         lista_de_varrer_final.push(concatenar);
-    }
-
+    }*/
     lista.splice(0, lista.length);
-    lista.push(...lista_de_varrer_final); // IMPORTANTE (OS TRES PONTINHOS)Usa spread operator para adicionar elementos individualmente
-    console.log(lista)
+    lista.push(...lista_de_varrer_final);
     return lista.join("");
 }
 
