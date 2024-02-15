@@ -1,66 +1,77 @@
 //visor.textContent =
-var lista = [];
-var lista_junta = [];
+
+var lista = []; // Lista atual de caracteres digitados pelo usuário -> ex: ["3", "+", "4", "5"]
+
 var lista_numeros = ["0","1","2","3","4","5","6","7","8","9"];
-var lista_operadores = ["+","-","*","/"];
+
+var lista_operadores = ["+","-","*","/"]; // Operadores aritméticos básicos.
+
 function atualizarVisor(lista) {
     var visor = document.getElementById('visor');
     visor.textContent = lista;
 }
+
+// Função chamada quando um botão é apertado na calculadora
 function mostrar_coisa(string){
-    if (string === "="){
-        lista_junta = juntar_numeros();
-        lista.splice(0, lista.length);
-        lista.push(lista_junta);
+    if (string === "="){        
+        // Coloca lista-junta como uma variável local.
+        // Tokeniza os elementos da lista: ["3", "-", "3", "3"] -> ["3", "-", "33"]
+        let lista_junta = juntar_numeros(lista);
+
+        console.log(lista_junta)
+
+        // Resolução da expressão
+
+        /* Alguma_coisa(lista_junta) */
+
+        // Limpar a lista de caracteres digitados
+        // Para que assim, o usuário consiga digitar uma nova expressão
+
+        /* 
+        TODO: Depois que resolvida a expressão, a lista de chars ao invés de ser limpada, deve conter apenas o char 
+        do resultado da expressão
+        */
+        lista = [];
     }
     else{
         lista.push(string);
     }
 }
+
 function mostrar_lista() {
     console.log(lista)
 }
-function juntar_numeros(){ //varendo a lista para juntar numeros escritos entre operadores
-    //["1","0", "+", "7", "*", "9", "9", "9"] inicial
-    //["10", "+", "7" "*", "9", "9", "9"] almejado
-    //processo
-    // i=0 -> lista_de_varrer_inical = ["1"]
 
-    // i=1 -> lista_de_varrer_inical = ["1","0"]
-    // i=1 -> concatenar = "10"
-    // i=1 -> lista_de_varrer_inicial = [] (apagou)
-    // i=1 -> lista_de_varrer_inicial (+= concatenar) = ["10"]
+/* 
+Essa função tokeniza uma lista digitada, concatenando os números
+que estão separados por operadores.
+EX: ["4", "-", "5", "3", "+", "3", "2", "1"] -> ["4", "-", "53", "+", "321"]
+*/
+function juntar_numeros(lista_digitada) { 
+    let lista_final = []; // Lista final (a ser retornada)
+    let num_atual = []; // Lista contendo os caracteres do número atual, veja o for abaixo:
 
-    // i=2 -> lista_de_varrer_final (+=lista_de_varrer_incial) = ["10"]
-    // i=2 -> lista_de_varrer_fianl = ["10","+",]
-    let lista_de_varrer_final = [];
-    let lista_de_varrer_inicial = [];
-
-    for (let i = 0; i < lista.length; i++) {
-        if (!lista_operadores.includes(lista[i])){
-            if (lista_de_varrer_inicial.length > 0){ 
-                lista_de_varrer_final.push(...lista_de_varrer_inicial); //... -> adicionar só os elementos
-                lista_de_varrer_inicial.splice(0, lista_de_varrer_inicial.length);
-            }
-            lista_de_varrer_final.push(lista[i]);
+    // Iterando os elementos da lista
+    for (let i=0;i<lista_digitada.length;i++) {
+        let char = lista_digitada[i]; // Pega o caractere atual usando o índice
+        if (!lista_operadores.includes(char)) { // Se char NÃO for um operador aritmético, adicione-o a num_atual
+            num_atual.push(char);
+            continue // Isso faz com o que o for pule o código em seguinte.
         }
-        else{
-            lista_de_varrer_inicial.push(lista[i]) 
-            if(lista_de_varrer_inicial.length > 1) {
-                let concatenar = lista_de_varrer_inicial.join("");
-                lista_de_varrer_inicial.splice(0, lista_de_varrer_inicial.length); // apaga a lista
-                lista_de_varrer_inicial.push(concatenar);
-            }
-        }    
+
+        // No caso então de char ser um operador...
+        lista_final.push(num_atual.join("")); // Adicione o número atual à lista final, e concatene os elementos ["3", "3"] -> "33" 
+        lista_final.push(char); // Adicione o operador à lista final
+        num_atual = []; // Reseta a lista que guarda o número atual.
     }
-    // Trata o caso em que a última parte da expressão não é um operador
-    /*if (lista_de_varrer_inicial.length > 0) {
-        let concatenar = lista_de_varrer_inicial.join("");
-        lista_de_varrer_final.push(concatenar);
-    }*/
-    lista.splice(0, lista.length);
-    lista.push(...lista_de_varrer_final);
-    return lista.join("");
+    
+    // Se houver alguma coisa ainda em num_atual, adicione esse número à lista final
+    if (num_atual.length > 0) {
+        lista_final.push(num_atual.join(""))
+    }
+
+    // Retorne a lista final.
+    return lista_final;
 }
 
 window.atualizarVisor=atualizarVisor;
