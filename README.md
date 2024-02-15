@@ -6,7 +6,7 @@ Você será capaz de registrar uma conta e guardar seus pontos nela, para assim,
 
 **É isso** Boa sorte e divirta-se!
 
-**OBS** O site ainda está em desenvolvimento e está sujeito a mudanças. Logo, coisas novas podem aparecer e/ou outras podem ser modificadas, deletadas.
+**OBS** O site ainda está em desenvolvimento e está sujeito a mudanças. Logo, coisas novas podem aparecer e/ou outras podem ser modificadas, deletadas. Ou ainda não estão disponíveis ao acesso na versão atual.
 
 ---
 ## Licença
